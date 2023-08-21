@@ -1,0 +1,77 @@
+:root {
+  font-family: 'Fragment Mono', monospace;
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+.quiz-container {
+  max-width: 800px; /* increase max-width to allow more space for questions */
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.question {
+  margin-bottom: 20px; /* increase margin-bottom to add more space between questions */
+  font-size: 18px;
+}
+
+.answer-list {
+  display: flex;
+  flex-wrap: wrap; /* add flex-wrap to allow answers to wrap to the next line */
+  gap: 1rem;
+}
+
+.answer-button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px; /* increase margin-bottom to add more space between answers */
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.answer-button:hover {
+  background-color: #0056b3;
+}
+
+.submit-button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-top: 20px; /* increase margin-top to add more space between questions and submit button */
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  animation: fade-in 0.5s ease;
+}
