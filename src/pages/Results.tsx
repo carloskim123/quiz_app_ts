@@ -1,18 +1,19 @@
-import { useState } from "react";
+import { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/Results.css"; // Import the CSS file
+import { CountContext } from "../context/CountContext";
 
-export default function Results({ correctCount, incorrectCount }) {
-  const [buttonText, setButtonText] = useState("Start");
+export default function Results() {
+  const { correctCount, incorrectCount } = useContext(CountContext);
+
   const navigate = useNavigate();
+  useEffect(() => {
+    if (correctCount === 0 || incorrectCount === 0) {
+      navigate("/");
+    }
+  }, [navigate, correctCount, incorrectCount]);
 
   const handleClick = () => {
-    if (correctCount > 0) {
-      setButtonText("Play Again");
-    } else {
-      setButtonText("Start");
-    }
-
     navigate("/");
     window.location.reload();
   };
@@ -26,7 +27,7 @@ export default function Results({ correctCount, incorrectCount }) {
         Incorrect: {incorrectCount > 0 ? incorrectCount : 0}
       </h2>
       <button className="result-button" onClick={handleClick}>
-        {buttonText}
+        play again
       </button>
     </div>
   );

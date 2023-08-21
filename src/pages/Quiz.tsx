@@ -1,14 +1,13 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { questions } from "../db/quizes";
 import { useNavigate } from "react-router-dom";
 import "../styles/Quiz.css";
+import { CountContext } from "../context/CountContext";
 
-export default function Quiz({
-  correctCount,
-  setCorrectCount,
-  incorrectCount,
-  setInCorrectCount,
-}) {
+export default function Quiz() {
+  const { correctCount, setCorrectCount, incorrectCount, setInCorrectCount } =
+    useContext(CountContext);
+
   const [isSubmitButtonDisabled, setIsSubmitButtonDisabled] = useState(true);
   const [isButtonDisabled, setIsButtonDisabled] = useState(
     questions.map(() => false)
@@ -31,7 +30,7 @@ export default function Quiz({
       setInCorrectCount(incorrectCount + 1);
       e.target.style.textDecoration = "line-through";
 
-      e.target.style.backgroundColor = "orange";
+      e.target.style.backgroundColor = "maroon";
     }
   };
 
@@ -61,7 +60,6 @@ export default function Quiz({
             </div>
           </span>
         ))}
-        
       </div>
       <button
         className="submit-button"
