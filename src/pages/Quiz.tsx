@@ -23,13 +23,14 @@ export default function Quiz({
     );
     setIsButtonDisabled(updatedButtonStates);
 
-    e.target.style.textDecoration = "line-through";
     e.target.style.backgroundColor = "green";
 
     if (e.target.innerText === question.correct_answer) {
       setCorrectCount(correctCount + 1);
     } else {
       setInCorrectCount(incorrectCount + 1);
+      e.target.style.textDecoration = "line-through";
+
       e.target.style.backgroundColor = "orange";
     }
   };
@@ -38,7 +39,6 @@ export default function Quiz({
     <div className="quiz-container">
       <header>
         <h2>Quiz App React</h2>
-        <link href="https://github.com/"></link>
       </header>
       <div className="quiz-element">
         {questions.map((question, index) => (
@@ -61,7 +61,8 @@ export default function Quiz({
             </div>
           </span>
         ))}
-      h</div>
+        
+      </div>
       <button
         className="submit-button"
         disabled={isSubmitButtonDisabled}
